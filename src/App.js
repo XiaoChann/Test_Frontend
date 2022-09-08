@@ -1,9 +1,25 @@
 import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 function App() {
+
+  
+  useEffect(() => {
+    fetch("https://api.github.com/users/XiaoChann")
+    .then((res) => res.json())
+    .then(
+      (result) => {
+        console.log(result);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }, []);
+  
   return (
     <div className="App App w-100 min-vh-100 justify-content-center align-items-center d-flex">
          <Card style={{ width: '18rem' }}>
