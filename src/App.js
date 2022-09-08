@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 function App() {
+  const [avatarURL, setAvatarURL] = useState();
 
   
   useEffect(() => {
@@ -13,6 +14,7 @@ function App() {
     .then(
       (result) => {
         console.log(result);
+        setAvatarURL(result.avatar_url);
       },
       (error) => {
         console.log(error);
@@ -23,7 +25,7 @@ function App() {
   return (
     <div className="App App w-100 min-vh-100 justify-content-center align-items-center d-flex">
          <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
+      <Card.Img variant="top" src={avatarURL}/>
       <Card.Body>
         <Card.Title>Card Title</Card.Title>
         <Card.Text>
