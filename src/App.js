@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 
 function App() {
   const [avatarURL, setAvatarURL] = useState();
+  const [githubUsername, setgithubUsername] = useState();
 
   
   useEffect(() => {
@@ -15,6 +16,7 @@ function App() {
       (result) => {
         console.log(result);
         setAvatarURL(result.avatar_url);
+        setgithubUsername(result.login)
       },
       (error) => {
         console.log(error);
@@ -27,7 +29,9 @@ function App() {
          <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={avatarURL}/>
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
+        <Card.Title>
+        {githubUsername}
+        </Card.Title>
         <Card.Text>
           Some quick example text to build on the card title and make up the
           bulk of the card's content.
